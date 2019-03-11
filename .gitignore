@@ -1,0 +1,10 @@
+
+*.class
+
+dist/ebillsPayWSInterfacev2\.jar
+
+dist/
+
+*.log
+
+*.mdmp
