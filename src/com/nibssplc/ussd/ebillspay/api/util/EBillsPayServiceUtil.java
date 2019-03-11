@@ -260,7 +260,7 @@ public class EBillsPayServiceUtil {
 
     String sendRequest_old(String headerParam, String requestXML, String operationMode) {
         //  String USER_AGENT = "Mozilla/5.0";
-        String responseBody = "";
+        String responseBody = "testing";
         System.out.println("**** post URL  = " + serviceURL);
         try {
             //  HttpsURLConnection.setDefaultHostnameVerifier(trustAllCertificates());
