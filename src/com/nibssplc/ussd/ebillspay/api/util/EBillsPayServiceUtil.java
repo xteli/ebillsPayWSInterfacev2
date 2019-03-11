@@ -56,7 +56,7 @@ public class EBillsPayServiceUtil {
         responseCodes.put("45", "69");
         responseCodes.put("46", "69");
         responseCodes.put("25", "25");
-        responseCodes.put("52", "25");
+        responseCodes.put("520", "250");
     }
 
     public EBillsPayServiceUtil() {
