@@ -56,7 +56,7 @@ public class EBillsPayServiceUtil {
         responseCodes.put("45", "69");
         responseCodes.put("46", "69");
         responseCodes.put("25", "25");
-        responseCodes.put("520", "250");
+        responseCodes.put("52", "25");
     }
 
     public EBillsPayServiceUtil() {
@@ -82,6 +82,22 @@ public class EBillsPayServiceUtil {
             String reqArr[] = requestXML.split("<Record><Name>Amount</Name>");
             requestXML = reqArr[0] + "</CustomerInformationValidationRequest>";
             valReq = convertValidationRequestXMLStringToObject(requestXML);
+        }
+
+        //manipulate xml request for LSHS
+        if ("192".equals(valReq.getValidationHeader().getBillerId())) {
+//            if (requestXML.contains("<Record><Name>Amount</Name>")) {
+//                String reqArr[] = requestXML.split("<Record><Name>Amount</Name>");
+//                requestXML = reqArr[0] + "</CustomerInformationValidationRequest>";
+//            }
+//            if (requestXML.contains("<Record><Name>amount</Name>")) {
+//                String reqArr[] = requestXML.split("<Record><Name>amount</Name>");
+//                requestXML = reqArr[0] + "</CustomerInformationValidationRequest>";
+//            }
+            if (requestXML.contains("<Record><Name>policyNumber</Name>")) {
+                String reqArr[] = requestXML.split("<Record><Name>policyNumber</Name><Value>");
+                requestXML = reqArr[0] + "<Record><Name>client_code</Name><Value>LSHS_001</Value></Record><Record><Name>policyNumber</Name><Value>LSHS-" + reqArr[1];
+            }
         }
 
         //manipulate xml request for Alimosho
