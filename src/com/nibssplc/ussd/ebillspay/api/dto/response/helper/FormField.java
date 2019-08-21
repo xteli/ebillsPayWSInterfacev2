@@ -6,6 +6,8 @@
 package com.nibssplc.ussd.ebillspay.api.dto.response.helper;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -35,6 +37,8 @@ public class FormField implements Serializable {
     private String required;
     @XmlElement(name = "Readonly")
     private String readonly;
+    @XmlElement(name="Item")
+    private List<ItemXml> listItem = new ArrayList<ItemXml>();
     @XmlElement(name = "Order")
     private String order;
     @XmlElement(name = "RequiredInNextStep")
@@ -122,11 +126,18 @@ public class FormField implements Serializable {
         this.amountField = amountField;
     }
 
+    public List<ItemXml> getListItem() {
+        return listItem;
+    }
+
+    public void setListItem(List<ItemXml> listItem) {
+        this.listItem = listItem;
+    }
+
     @Override
     public String toString() {
-        return "FormField{" + "label=" + label + ", name=" + name + ", type=" + type + ", defaultValue=" + defaultValue + ", maxLength=" + maxLength + ", required=" + required + ", readonly=" + readonly + ", order=" + order + ", requiredInNextStep=" + requiredInNextStep + ", amountField=" + amountField + '}';
+        return "FormField{" + "label=" + label + ", name=" + name + ", type=" + type + ", defaultValue=" + defaultValue + ", maxLength=" + maxLength + ", required=" + required + ", readonly=" + readonly + ", listItem=" + listItem + ", order=" + order + ", requiredInNextStep=" + requiredInNextStep + ", amountField=" + amountField + '}';
     }
-    
     
 
 }

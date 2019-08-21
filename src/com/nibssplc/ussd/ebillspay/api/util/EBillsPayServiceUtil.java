@@ -85,7 +85,7 @@ public class EBillsPayServiceUtil {
         }
 
         //manipulate xml request for LSHS
-        if ("192".equals(valReq.getValidationHeader().getBillerId())) {
+        if ("327".equals(valReq.getValidationHeader().getBillerId())) {
 //            if (requestXML.contains("<Record><Name>Amount</Name>")) {
 //                String reqArr[] = requestXML.split("<Record><Name>Amount</Name>");
 //                requestXML = reqArr[0] + "</CustomerInformationValidationRequest>";
